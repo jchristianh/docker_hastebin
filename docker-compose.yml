@@ -4,7 +4,7 @@ services:
   tzg_hastebin:
     container_name: tzg_hastebin
     restart: always
-    image: docker.thezengarden.net/hastebin
+    image: thezengarden/hastebin
     build: .
     command: npm start
     networks:
