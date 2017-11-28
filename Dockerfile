@@ -1,6 +1,6 @@
 ###################################
 # The Zen Garden :: Hastebin      #
-#     Build Tag: 171120-1200      #
+#     Build Tag: 171128-1042      #
 ###################################
 FROM alpine:latest
 MAINTAINER Chris Hammer <chris@thezengarden.net>
@@ -9,7 +9,7 @@ MAINTAINER Chris Hammer <chris@thezengarden.net>
 # Update base and install required deps:
 ########################################
 RUN apk update
-RUN apk add nodejs nodejs-npm git procps bash
+RUN apk add nodejs nodejs-npm git procps bash redis
 
 
 # Clone git repo & run installer:
@@ -31,6 +31,13 @@ EXPOSE 7777
 WORKDIR /haste-server
 
 
+# Copy configs into image:
+##########################
+COPY etc/config_local_redis.js /haste-server/config.js
+COPY etc/redis_no_comments.conf /etc/redis.conf
+
+
 # By default, kick off hastebin-server:
 #######################################
-CMD ["npm start"]
+#CMD ["npm start"]
+CMD redis-server /etc/redis.conf && npm start
