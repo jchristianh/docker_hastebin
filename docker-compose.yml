@@ -19,7 +19,7 @@ services:
   tzg_redis:
     container_name: tzg_redis
     restart: always
-    image: redis:4.0.2-alpine
+    image: redis:4-alpine
     networks:
       - tzg_hastebin
     expose:

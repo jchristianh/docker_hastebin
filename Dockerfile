@@ -1,9 +1,9 @@
-###################################
-# The Zen Garden :: Hastebin      #
-#     Build Tag: 171128-1042      #
-###################################
+#################################
+# The Zen Garden :: Hastebin    #
+#   Build Tag: 200215-12852     #
+#################################
 FROM alpine:latest
-MAINTAINER Chris Hammer <chris@thezengarden.net>
+LABEL maintainer="Chris Hammer <chris@thezengarden.net>"
 
 
 # Update base and install required deps:
